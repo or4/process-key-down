@@ -5,6 +5,10 @@ import './Canvas.scss';
 
 const b = block('header');
 
-export function Canvas() {
-    return <div className={b()}>Canvas</div>;
+interface IProps {
+    value: string;
+}
+
+export function Canvas(props: IProps) {
+    return <div className={b()}>{props.value}</div>;
 }
