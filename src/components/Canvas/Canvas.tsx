@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { block } from 'bem-cn';
+import { detectOs } from 'utils/detectOs';
 
 import './Canvas.scss';
 
@@ -22,7 +23,7 @@ function drawData(canvas: HTMLCanvasElement | null, value: string) {
 
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.font = '30px Arial';
-    context.fillText(value, 20, 35);
+    context.fillText(`${detectOs()}: ${value}`, 20, 35);
 }
 
 export function Canvas(props: IProps) {
