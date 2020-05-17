@@ -1,2 +1,2 @@
-export { Header } from 'components/Header/Header';
-export { Canvas } from 'components/Canvas/Canvas';
+export { Header } from './Header/Header';
+export { Canvas } from './Canvas/Canvas';

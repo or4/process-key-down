@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { block } from 'bem-cn';
-import { detectOs } from 'utils/detectOs';
 
-import './Canvas.scss';
+import { createText } from 'core/processText';
+import { KeyDownValue } from 'core/processText/types';
 
 const b = block('canvas');
 
 interface IProps {
-    value: string;
+    value: KeyDownValue;
 }
 
-function drawData(canvas: HTMLCanvasElement | null, value: string) {
+function drawData(canvas: HTMLCanvasElement | null, keyDownValue: KeyDownValue) {
     if (!canvas) {
         return;
     }
@@ -23,7 +23,7 @@ function drawData(canvas: HTMLCanvasElement | null, value: string) {
 
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.font = '30px Arial';
-    context.fillText(`${detectOs()}: ${value}`, 20, 35);
+    context.fillText(createText(keyDownValue), 20, 35);
 }
 
 export function Canvas(props: IProps) {

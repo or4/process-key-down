@@ -2,14 +2,14 @@ import * as React from 'react';
 import { block } from 'bem-cn';
 
 import { Header, Canvas } from 'components';
-import { useKeyPress } from 'hooks/useKeyPress';
+import { useKeyDown } from 'hooks';
 
 import './App.scss';
 
 const b = block('app');
 
 export function App() {
-    const pressedValue = useKeyPress();
+    const pressedValue = useKeyDown();
 
     return (
         <div className={b()}>

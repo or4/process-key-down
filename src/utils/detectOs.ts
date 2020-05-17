@@ -6,26 +6,34 @@ export enum OS {
     Linux = 'linux',
 }
 
+export const osList: OS[] = [];
+
 export function detectOs() {
     if (window.navigator.userAgent.indexOf('Win') !== -1) {
-        return OS.Windows;
+        osList.push(OS.Windows);
     }
 
     if (window.navigator.userAgent.indexOf('Mac') !== -1) {
-        return OS.MacOS;
+        osList.push(OS.MacOS);
     }
 
     if (window.navigator.userAgent.indexOf('Ubuntu') !== -1) {
-        return OS.Ubuntu;
+        osList.push(OS.Ubuntu);
     }
 
     if (window.navigator.userAgent.indexOf('Unix') !== -1) {
-        return OS.UNIX;
+        osList.push(OS.UNIX);
     }
 
     if (window.navigator.userAgent.indexOf('Linux') !== -1) {
-        return OS.Linux;
+        osList.push(OS.Linux);
     }
 
-    return 'Unknown OS';
+    return osList;
+}
+
+detectOs();
+
+export function isOS(os: OS) {
+    return osList.includes(os);
 }
